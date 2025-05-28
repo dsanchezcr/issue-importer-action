@@ -1,4 +1,4 @@
-name: 'Issue Importer'
+name: 'Issue Importer Action'
 description: 'Import issues from CSV or JSON files into a GitHub repository'
 author: 'https://github.com/dsanchezcr'
 branding:
