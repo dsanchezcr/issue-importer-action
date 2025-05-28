@@ -1,0 +1,6 @@
+title,body,labels,assignees,milestone
+"Setup CI/CD Pipeline","We need to setup automated testing and deployment pipeline for the project","enhancement;devops","",
+"Fix login bug","Users cannot login with special characters in their password. This is causing authentication failures.","bug;high-priority","",
+"Update API documentation","The API documentation is outdated and needs to be updated with the latest endpoints and examples","documentation","",
+"Add dark mode support","Users have requested a dark mode option for better user experience","enhancement;ui","",
+"Performance optimization","The application is running slowly on mobile devices and needs optimization","performance;mobile","",

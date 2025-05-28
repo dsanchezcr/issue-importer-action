@@ -1,0 +1,36 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "01:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "dsanchezcr"
+    commit-message:
+      prefix: "npm"
+      prefix-development: "npm-dev"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "javascript"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "01:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "dsanchezcr"
+    commit-message:
+      prefix: "actions"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"

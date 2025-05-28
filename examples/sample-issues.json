@@ -1,0 +1,34 @@
+{
+  "issues": [
+    {
+      "title": "Setup CI/CD Pipeline",
+      "body": "We need to setup automated testing and deployment pipeline for the project",
+      "labels": ["enhancement", "devops"],
+      "assignees": []
+    },
+    {
+      "title": "Fix login bug",
+      "body": "Users cannot login with special characters in their password. This is causing authentication failures.",
+      "labels": ["bug", "high-priority"],
+      "assignees": []
+    },
+    {
+      "title": "Update API documentation",
+      "body": "The API documentation is outdated and needs to be updated with the latest endpoints and examples",
+      "labels": ["documentation"],
+      "assignees": []
+    },
+    {
+      "title": "Add dark mode support",
+      "body": "Users have requested a dark mode option for better user experience",
+      "labels": ["enhancement", "ui"],
+      "assignees": []
+    },
+    {
+      "title": "Performance optimization",
+      "body": "The application is running slowly on mobile devices and needs optimization",
+      "labels": ["performance", "mobile"],
+      "assignees": []
+    }
+  ]
+}

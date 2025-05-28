@@ -1,0 +1,61 @@
+name: Build and Test Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run linting
+        run: npm run lint
+      - name: Build the action
+        run: npm run build
+      - name: Run tests
+        run: npm run test:coverage
+
+  integration-test:
+    runs-on: ubuntu-latest
+    needs: build-test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Create test issue file
+        run: |
+          cat > test-issues.json << 'EOF'
+          [
+            {
+              "title": "Test Issue from CI",
+              "body": "This is a test issue created during CI pipeline",
+              "labels": ["test", "ci"]
+            }
+          ]
+          EOF
+      - name: Test action (dry run)
+        uses: ./
+        with:
+          file-path: 'test-issues.json'
+          file-format: 'json'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          dry-run: 'true'

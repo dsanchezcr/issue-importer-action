@@ -1,0 +1,47 @@
+name: Example - Import Issues from CSV & JSON
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Perform dry run (true/false)'
+        required: false
+        default: 'false'
+
+jobs:
+  import-issues-from-csv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Import Issues from CSV
+        uses: dsanchezcr/issue-importer-action@v1.0.0
+        with:
+          file-path: examples/sample-issues.csv
+          file-format: csv
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          dry-run: ${{ github.event.inputs.dry_run }}
+
+      - name: Display Results
+        run: |
+          echo "Issues import completed!"
+          echo "Check the action output for details."
+
+  import-issues-from-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Import Issues from JSON
+        uses: dsanchezcr/issue-importer-action@v1.0.0
+        with:
+          file-path: examples/sample-issues.json
+          file-format: json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          dry-run: ${{ github.event.inputs.dry_run }}
+
+      - name: Display Results
+        run: |
+          echo "Issues import completed!"
+          echo "Check the action output for details."
