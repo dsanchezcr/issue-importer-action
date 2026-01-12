@@ -21,7 +21,7 @@
   "author": "dsanchezcr",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.10.1",
+    "@actions/core": "^2.0.2",
     "@actions/github": "^6.0.0",
     "csv-parser": "^3.0.0",
     "papaparse": "^5.4.1"
